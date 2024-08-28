@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="/assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo">project</a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+		
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Post -->
+			<section class="post">
+				<header class="major">
+					<h1>This is<br />
+						My Dissertation Project</h1>
+				</header>
+
+				<p><b>Declaration & Copyright</b> <br>I Nikolay Dushev confirm that the work made in this report and
+					other materials is confidentially my work.
+					The information gathered throughout the Literature review has been quoted with proper references in
+					the
+					bibliography section to prevent claims of ownership. This report has not been previously presented
+					in
+					any shape or form by other institutions and organizations. </p>
+				<p><b>Acknowledgement<br></b>I would like to give my thanks to my supervisor Padma Daryanani for
+					participating in this project and
+					guiding me through. Her moral support and professional mindset provided me with more chances to
+					write
+					better reports for my project and always pushed me in a way where I can further develop my skills. I
+					would like to also thank the module leader Dr Can Baskent for providing guidance throughout the year
+					and
+					giving us many useful resources that were used towards the final project.</p>
+				<p><b>Abstract:<br></b>This project will explore the boundaries in recovering deleted data in NTFS file
+					systems, as well to
+					locate specific files within a system including files that are hidden from the user(ADS) as well as
+					files that can cause harm to the system. Attackers commonly use alternative data streams as a method
+					to
+					hide tools in a system that will enable them to execute processes in a system without being
+					detected.
+					The processes executed can vary and can affect the user by damaging the user's device or stealing
+					personal information.In this project, I will be developing software capable of recovering deleted
+					files
+					in a system or external devices, as well as locating files including files that are not visible to
+					the
+					user, and that could cause harm to the device. These deliverables will be achieved only by using the
+					tools that Windows Powershell are providing us, no other software will be used throughout this work.
+					Another major feature will be the ability to show in-depth information about files specified by the
+					user. The project uses Powershell scripts to operate the different functionalities.</p>
+				<p><b>1. Introduction:</b><br>With the advancement of information technologies, computers are being used
+					more and more in different
+					fields of our lives, furthermore, due to their increasing popularity, high-technology crime has
+					noticeably grown throughout the years. Therefore tapping and analyzing data in storage devices
+					becomes
+					an important part of undertaking evidence of a crime (Kai, Z., En, C. and Qinquan, G. (2010))[5].
+				</p>
+				<p><b>2. Literature Review:</b><br>It is essential to understand the background of the file system and
+					the analysis conducted by (Kai, Z.,
+					En, C. and Qinquan, G. (2010))[5] provides background information on the NTFS file system and the
+					table
+					structure that it adapts to store files within the system. The study by (Davis, J., MacLean, J., and
+					Dampier, D. (2010).)[3] also explores the file management of NTFS system as well as explores the
+					other
+					opportunities where data can be hidden, while the study by (Focus, F. (2011))[4] outlines methods
+					and
+					implementations on where to look for the hidden data, this study mainly focuses on the location of
+					the
+					hidden files withing the clusters that the files are stored. The article of(.Mayor, D. (2022).)[8]
+					Explains how one of the most common viruses works and can affect and damage your system. This virus
+					is
+					located in .com or .exe files and is more often memory-resistant meaning that once they are executed
+					they remain active in the computer's memory and can even affect more files
+
+					The research conducted by (Zhang, N., Jiang, Y., and Wang, J. (2020))[2] outlines the possibilities
+					of
+					finding hidden data in deleted files. The study shows how deleted files are handled within the
+					clusters
+					of the system, and further explores opportunities for recovering that lost data. Furthermore, the
+					study
+					is describing in detail what is happening to the record file in the stage where the file is deleted.
+
+					The research deducted by (Huebner, E., Bem, D. and Wee, C.K. (2006))[1] follows through the process
+					of
+					hiding files in one another as well as how they can be detected by the user. Comparing this study to
+					(Focus, F. (2011))[4] and (Zhang, N., Jiang, Y., and Wang, J. (2020))[2] research we can take note
+					of
+					(Huebner, E., Bem, D. and Wee, C.K. (2006))[1] methods of extracting metadata form cluster within
+					the
+					file system. Another key point that (Huebner, E., Bem, D. and Wee, C.K. (2006))[1] outlines are the
+					“Runlist” used in file systems for file recovery as well as to analyze the attributes of the data.
+
+					Understanding what happens when a file gets deleted is going to be vital for our work, looking at
+					the
+					study form [6] Elsevier Enhanced Reader gives an analysis of what happens when a file gets deleted
+					for a
+					system. The key factor in this research is the analysis of the state of the files after they get
+					deleted.</p>
+				<p><b>3. Initial steps:</b></p>
+				<p>Developing the main functionalities is the first and current stage that the project is currently in.
+					At first, tackling features that the program will be the file location. The script that we will be
+					using inputs from the user. The code (figure 1)
+				<div class="image main"><img src="./images/dis 1234.png" alt="" /></div>
+				<p>
+					<b< /b>will take inputs from the user for the filename that he is looking for and another input for
+						the directory. After the user gives the inputs the console will display all the files with their
+						names, file paths, and a description of the file. In figure 2 we can see that the output of the
+						code gives us the exact location of the files with that name. Furthermore, if the user is
+						unaware of the exact way the file is written the program will have the option to look at
+						“wildcards”.
+				</p><br>
+				<div class="image main"><img src="./images/dis1.png" alt="" /></div>
+				<p>Further, another feature that is being worked on is detecting alternative data streams, in order to
+					develop a consistent function that will be detecting hidden files as well as look into their
+					content. In the current state of the project, we have only discovered a way to detect
+					ADS(alternative data streams) with PowerShell commands. Figure 3 is representing an ordinary file
+					that would be visible to the user. </p>
+				<div class="image main"><img src="./images/dis 2.png" alt="" /></div>
+				<p>In order to show an example this function will be run on this file and it will simulate hidden data
+					that won't be visible to the user(figure 4). </p>
+				<div class="image main"><img src="./images/dis 3.png" alt="" /></div>
+				<p>This function hides a message inside one of the files, in order to access the hidden message firstly
+					the file containing the hidden information must be found.</p>
+				<div class="image main"><img src="./images/dis 4.png" alt="" /></div>
+				<p>This figure(figure 4) represents the same file after the hidden message has been added, if a user
+					were to be looking at the same file nothing would seem out of place. Further, there are more
+					commands that can be utilised to uncover the hidden message. By executing the following command on
+					the file, the hidden message is revealed in the console(figure 5).</p>
+				<div class="image main"><img src="./images/dis 5.png" alt="" /></div>
+				<p>Having to process all of this manually would take a very long time and effort, this is the current
+					stage of the project, currently, all the processes are being assembled into one function that will
+					do everything manually for the user, but currently, in the process of developing this function,
+					there are a lot of issues that are being faced and dealt with is debugging errors and dealing with
+					access to certain PowerShell commands.</p>
+				<p><b>4. Requirements Specifications:</b></p>
+				<p>During development, the initial steps were to create all the required functionalities that the
+					software will have, the first functionality that was developed was the recovery function. To develop
+					this functionality firstly we had to understand what happens to the file after it gets deleted in a
+					system. After a file is permanently removed from the recycling bin it leaves a trace behind where it
+					was initially located. This trace is located in a cluster of the NTFS file system, this trace will
+					remain there and will hold information about the deleted file, but it has to be noted that after a
+					certain amount of time, or depending on how busy a system is, this trace might get overridden by
+					another deleted or overwritten file[6]. The way we recover files in our software is we initially ask
+					the user to input a path that the user wants to look for deleted files. Further in our code, we look
+					tough the file and any sub-folders in the path, what we are looking for is the hidden traces that
+					the deleted files leave behind. Figure 5 is displaying how we are retrieving those files in our code
+					and saving them in a list the attribute.</p>
+				<div class="image main"><img src="./images/dis 6.png" alt="" /></div>
+				<p>Further for each deleted, we put in a list and instead of recovering the file in the same folder a
+					separate one is created instead to store the recovered files, during initial development an accident
+					happened, for a parameter the D drive was given and the function started recovering files wherever
+					traces were left, this resulted in the compilation of this function but also what happened was there
+					were too many files that were recovered, it should also be noted that overwritten files get
+					recovered also as they leave traces, this lead to many files in the D drive being overwritten as
+					well as reaching a limit where there was no more space left in the drive to recover files. In order
+					to prevent files from overwriting the files that are going to be recovered will be stored in a
+					separate folder. A separate folder will be created in every folder so that there can be files that
+					can be recovered.
+
+					The next objective for this software was to reliably locate files within a system and display
+					in-depth information about the file. It was also decided to combine the functionality of the
+					location of the file and for detecting Alternative Data Stream files. The way this function is the
+					program will ask for a path to be imputed then it will look inside that path and it will display all
+					the information about the files inside the folder this includes displaying information about
+					alternative data streams if there are any.
+					Figure 6 is an output example displaying information about a file in a folder. What is displayed is
+					the information of the file as the information of the alternative data stream.
+				</p>
+				<div class="image main"><img src="./images/dis 7.png" alt="" /></div>
+				<p>Figure 7 shows how we list the properties for each file
+					figure 7
+				</p>
+				<div class="image main"><img src="./images/dis 8.png" alt="" /></div>
+				<p>Figure 8 is displaying how we save the files in a list before we display the properties.For the files
+					to be stored the function takes a parameter from the user and then uses it to store the files. </p>
+				<div class="image main"><img src="./images/dis 9.png" alt="" /></div>
+				<p>Another deliverable that the software will have is being able to locate specific files. The user will
+					be asked to enter a file name and a directory to look for the specific file with that name. What the
+					software will then do is it will output the file location as well as some information about the
+					file. Figure 9 shows an example output of the function. </p>
+				<div class="image main"><img src="./images/dis 10.png" alt="" /></div>
+				<p>Initially it was planned to develop the functionalities for the software and afterwards link them to
+					a UI, but due to a lot of troubleshooting and errors, including my inexperience with this language,
+					it was decided to drop the idea for a user interface. The main problems that were occurring during
+					the development of the UI were empty pointers, which pointed out that the functions that we created
+					and tried linking to the UI are not passing values properly, and getting outputs for the functions
+					was not working, if we managed to get a function to work there would be still issues while linking
+					the other functions, multiple approaches were used, but it seemed that if we were to create separate
+					files for each function and use it in the UI it would work the best, but due to the lack of time, a
+					UI was not possible to be developed and implemented by the time of the deadline. The tools that were
+					used to attempt to develop the UI were visual studio tools that enable the building of interactive
+					UI for Powershell scripts.
+					In order to use these functionalities when the script is run by the user it will ask the user to
+					give it an input to use one of the desired functions. The user will be guided by the software as to
+					what inputs will be required to get to the desired outcome. Figure 10 below is displaying the switch
+					statement witch from which the user will have to choose between the options for the functionality.
+				</p>
+				<div class="image main"><img src="./images/dis 11.png" alt="" /></div>
+				<p>Each of the functions requires input from the user to operate, the user will be prompted by the
+					consol giving him a hint as to what the input is for, there is an option also that will allow the
+					user to exit from the script if the user gives a value that is out of the range the code will prompt
+					the user.</p>
+				<div class="image main"><img src="./images/dis 12.png" alt="" /></div>
+				<p>After the user is prompted he will be brought back to the menu screen with the selection of functions
+					that can be used.</p>
+				<div class="image main"><img src="./images/dis 13.png" alt="" /></div>
+				<p><b>5. Analysis and Design
+						<br>
+						5.2 Analysis of IDE:
+					</b></p>
+				<p>Visual Studio Code is a development software that provides many frameworks for developing various
+					kinds of projects. It is difficult and time-consuming to have to debug errors in code during
+					development, have a good IDE that prompts the user whenever there are mistakes in spelling in the
+					code, or have features that can highlight the main features that can be causing trouble.
+					The cons of visual studio code are that it requires a strong CPU is required in order to operate
+					larger projects, and the lack of a powerful cup could lead to projects crashing. Another major
+					drawback that the ide has is configuring it in order to work with your project, in regards to our
+					work, multiple configurations had to be made due to the restriction policy that the Windows firewall
+					system has, that by default prevents the user from executing custom scripts. Many adjustments had to
+					be made, the most major one giving admin rights whenever VScode is being used, as well as enabling
+					scripts to be executed on this system. It should be noted that after every session we have to set
+					the execution policy of the scripts back to default, if the execution policy is left unrestricted
+					the system will be highly vulnerable to viruses or files that can harm the system without the user
+					noticing.
+				</p>
+				<p><b>5.3 System Design</b></p>
+				<div class="image main"><img src="./images/dis 14.png" alt="" /></div>
+				<p>The diagram above is displaying will be representing the methodology of the software, the user will
+					be greeted by the software when ran and it will display the menu from which the user can decide what
+					to do, it should be noted that all of this will be done via the command window. At first looks a
+					little simple but what the user can do is for example search for a file name in a directory the code
+					will loop back to the beginning menu but the user can for example decide to bring this further and
+					copy the path of the file and use the list file property function on that specific file path.
+					Whenever the user decides that he is done using the software he can select the exit option and exit
+					the program.</p>
+				<p><b>6. Implementation & Testing </b></p>
+				<p>This chapter will outline the stages of development that the project went through. Powershell has
+					been selected as the main coding language that will be used to achieve our goals for this project.
+					Powershell is a command-line scripting language that was developed by Microsoft for managing and
+					automating Windows operating systems and applications. The most notable capabilities of this
+					language are that it allows users to interact with the Windows system and to execute and automate
+					complex tasks, another major purpose is to manage Windows systems, devices, cloud services and
+					networks. </p>
+
+				<p><b>6.1 Beggining of the Project</b></p>
+				<p>The first task in tackling this project is to get all the main functionalities. In Figure 11 we have
+					the first function of our project. The Recover-DeletedData function that was declared at the
+					beginning will be used to look through a file specified by the user and it will look for traces left
+					from deleted files.</p>
+				<div class="image main"><img src="./images/dis 15.png" alt="" /></div>
+				<p>The way it functions takes one mObject cmdlet is where we filter that we want to store only files
+					that have left traces after they have been deleted, these traces are stored where the file was
+					deleted from and will be used to recover the files from the memory, the “Hidden|System|Archive” is
+					where the filter is applied.
+					For each deleted file the function creates a path for the output file by using the Join_path cmdlet
+					to combine the path of the deled file’s parent directory with a subdirectory named “Recovered”. If
+					the “Recovered” directory does not exit the function creates a new item(folder) with that name and
+					stores the files there.
+					Finally, the function uses the Copy-item cmdlet to copy the deleted files to the outputted directory
+					and by using the -Force switch we specify that any existing files in the output directory with the
+					same name should be overwritten without prompting the user. The function then outputs a message to
+					the console indicating that the file was recovered.
+
+					Figure 12 is showing us the next stage of the software which was the Search-file function that was
+					created.
+				</p>
+				<div class="image main"><img src="./images/dis 16.png" alt="" /></div>
+				<p>The function will take two parameters, one is for the directory that we are going to be looking
+					through and another one for the filename that we are looking for. The function starts by calling the
+					Get-Child cmdlet to search for a specific file in a directory the “-Recurse” makes sure to display
+					all of the file’s subdirectories if it has one. If the search finds one or more files with the
+					specified name, the function uses the for loop to iterate through the results. For each file, the
+					function will call the Get-Item_prperty cmdlet to retrieve its properties and then output them to
+					the console. The properties displayed include the file’s name, length, last write time, creation
+					time, parent directory, author, full path, company and any stream data associated with the file. If
+					there is no file found the software will prompt the user and will return him back to the main menu.
+
+					Figures 13 and 14 it is shown the last function of our code. The function will take a single
+					parameter that will be representing the path to a folder or to a file to retrieve information.
+				</p>
+				<div class="image main"><img src="./images/dis 17.png" alt="" /></div>
+				<div class="image main"><img src="./images/dis 18.png" alt="" /></div>
+				<p>The function initiates by recursively searching for all the files within the specified folder path
+					and saves them in the $files variable. The function then iterates through each file using a for each
+					loop and displays various information about each file, the output is displayed in the display. After
+					displaying the basic information of the file, the function checks for any alternative data
+					streams(ADS) that may be associated with the file, using the Get-Item cmdlet with the “-Stream*”
+					switch, which is retrieving all streams associated with the file. If ADS is found then the function
+					will display information about each stream, including the name, size in KB, creation time, and last
+					modified time.
+					In this last figure, it is shown the menu from which the user is prompted. There is a switch
+					statement that the user that lets the user choose between the different functionalities of the code,
+					the switch statement is positioned inside a loop that will keep running until the user exits the
+					software.
+				</p>
+				<p><b>6.2 Testing</b></p>
+				<p>In order to make sure our software works properly, multiple tests will be running on all of the
+					functions. To test our function for recovering files we will be looking into different environments
+					and will be attempting to recover removed files from the system and observe the state of them. In
+					this first test, we will be deleting the content of a website project file ( the project file is
+					backed up) .</p>
+				<div class="image main"><img src="" alt="" /></div>
+				<p></p>
+				<div class="image main"><img src="" alt="" /></div>
+				<p></p>
+
+		</div>
+		</section>
+		<!-- Footer -->
+		<footer id="footer">
+			<section class="split contact">
+				<section>
+					<h3>Phone</h3>
+					<p><a href="#">+447541434106</a></p>
+				</section>
+				<section>
+					<h3>Email</h3>
+					<p><a href="#">malkia1maimyna@gmail.com</a></p>
+				</section>
+			</section>
+		</footer>
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<ul>
+				<li>&copy; Untitled</li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -17,6 +17,7 @@ you can use for pretty much whatever.
 AJ
 aj@lkn.io | @ajlkn
 
+To view the page use this link:https: https://nikokip20.github.io/project1/
 
 Credits:
 
